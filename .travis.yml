@@ -1,1 +1,16 @@
 language: C
+os: osx
+git:
+    submodules: true
+before_install:
+      - test -n $CC && unset CC
+install: true
+script: ./tests.sh
+
+
+
+
+
+
+
+
