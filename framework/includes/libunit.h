@@ -6,7 +6,7 @@
 /*   By: fbabin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 19:49:37 by fbabin            #+#    #+#             */
-/*   Updated: 2018/11/29 18:59:24 by fbabin           ###   ########.fr       */
+/*   Updated: 2018/12/02 14:13:22 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@ void						ut_putscore_wrapper(int tests_passed,
 void						child_process(t_test_list *test_list);
 void						parent_process(t_test_list *test_list,
 								int *tests_passed);
-void						test_list_run(t_test_list **test_list);
+int							test_list_run(t_test_list **test_list);
 void						test_list_run_wrapper(char *wrapper_name,
 								t_test_list **test_list);
 int							get_stdout_fd(int *p_fd);
 char						*get_stdout_buffer(int buff_size, char *buff_out,
 								int stdout_fd, int *p_fd);
+
+int							launch_tests(t_test_list **tests);
 
 #endif

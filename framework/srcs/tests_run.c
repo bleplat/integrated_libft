@@ -6,7 +6,7 @@
 /*   By: fbabin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 19:44:02 by fbabin            #+#    #+#             */
-/*   Updated: 2018/11/28 23:12:05 by fbabin           ###   ########.fr       */
+/*   Updated: 2018/12/02 14:03:52 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,32 +80,3 @@ void	parent_process(t_test_list *test, int *tests_passed)
 	process_status(test->test_name, status, tests_passed);
 }
 
-/*
-** Run all the tests in the test list
-*/
-
-void	test_list_run(t_test_list **testlst)
-{
-	t_test_list		*l;
-	pid_t			pid;
-	int				tests_passed;
-	int				tests_total;
-
-	tests_passed = 0;
-	tests_total = 0;
-	l = *testlst;
-	while ((*testlst))
-	{
-		pid = fork();
-		if (pid < 0)
-			exit(ut_putstr_error("test_run : fork returned a wrong pid\n"));
-		else if (pid == 0)
-			child_process(*testlst);
-		else
-			parent_process(*testlst, &tests_passed);
-		++tests_total;
-		*testlst = (*testlst)->next;
-	}
-	ut_putscore(tests_passed, tests_total);
-	*testlst = l;
-}

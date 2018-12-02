@@ -6,13 +6,13 @@
 /*   By: fbabin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 20:08:31 by fbabin            #+#    #+#             */
-/*   Updated: 2018/11/29 23:26:52 by fbabin           ###   ########.fr       */
+/*   Updated: 2018/12/02 14:21:48 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bzero_test.h"
 
-void	bzero_launcher(void)
+int		bzero_launcher(void)
 {
 	t_test_list		*test_list;
 
@@ -20,6 +20,5 @@ void	bzero_launcher(void)
 	test_list_add(&test_list, "test_bzero_simple_1", &test_bzero_simple_1);
 	test_list_add(&test_list, "test_bzero_zero", &test_bzero_zero);
 	test_list_add(&test_list, "test_bzero_null", &test_bzero_null);
-	test_list_run(&test_list);
-	test_list_del(&test_list);
+	return (launch_tests(&test_list));
 }

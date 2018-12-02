@@ -6,7 +6,7 @@
 /*   By: fbabin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 19:42:47 by fbabin            #+#    #+#             */
-/*   Updated: 2018/12/01 14:43:48 by bleplat          ###   ########.fr       */
+/*   Updated: 2018/12/02 14:34:14 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,49 @@ void			test_list_del(t_test_list **test_list)
 		*test_list = NULL;
 		*test_list = tmp;
 	}
+}
+
+/*
+** Run all the tests in the test list
+*/
+
+int		test_list_run(t_test_list **testlst)
+{
+	t_test_list		*l;
+	pid_t			pid;
+	int				tests_passed;
+	int				tests_total;
+
+	tests_passed = 0;
+	tests_total = 0;
+	l = *testlst;
+	while ((*testlst))
+	{
+		pid = fork();
+		if (pid < 0)
+			exit(ut_putstr_error("test_run : fork returned a wrong pid\n"));
+		else if (pid == 0)
+			child_process(*testlst);
+		else
+			parent_process(*testlst, &tests_passed);
+		++tests_total;
+		*testlst = (*testlst)->next;
+	}
+	ut_putscore(tests_passed, tests_total);
+	*testlst = l;
+	return ((tests_passed == tests_total) ? 0 : -1);
+}
+
+/*
+** Both run, then free given test list.
+** Return 1 if a test failed, otherwise return 0.
+*/
+
+int		launch_tests(t_test_list **tests)
+{
+	int		result;
+
+	result = test_list_run(tests);
+	test_list_del(tests);
+	return (result);
 }
