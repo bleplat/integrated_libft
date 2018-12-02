@@ -6,7 +6,7 @@
 /*   By: fbabin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 19:44:22 by fbabin            #+#    #+#             */
-/*   Updated: 2018/12/02 21:49:14 by fbabin           ###   ########.fr       */
+/*   Updated: 2018/12/02 23:19:57 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ static void		ut_puttest_result_wrapper(char *color_code, char *result)
 	ut_putstr(T_RESET);
 }
 
-
-void		ut_display_test_wrapper(char *ut_name, int status)
+void			ut_display_test_wrapper(char *ut_name, int status)
 {
 	if (!ut_name)
 		exit(ut_putstr_error("process_status : NULL parameter\n"));
@@ -52,6 +51,7 @@ void		ut_display_test_wrapper(char *ut_name, int status)
 			ut_puttest_result_wrapper(T_RED, "F");
 	}
 }
+
 /*
 ** Write the result of a test in the wrapper format depending on the test signal
 */
