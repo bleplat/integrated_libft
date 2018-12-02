@@ -6,7 +6,7 @@
 #    By: fbabin <fbabin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/20 22:51:42 by fbabin            #+#    #+#              #
-#    Updated: 2018/12/02 18:20:54 by bleplat          ###   ########.fr        #
+#    Updated: 2018/12/02 18:24:43 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ _END=\x1b[0m
 all: $(NAME)
 
 $(NAME): $(HEADER) $(LHEADER) $(LIBUNIT) $(LIBFT) $(OBJS)
-		$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L$(LIBUNIT_DIR) -lunit -Llibft -lft  -I $(HEADER_DIR) -I $(LHEADER_DIR)
+		$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L$(LIBUNIT_DIR) -lunit -L$(LIBFT_DIR) -lft  -I $(HEADER_DIR) -I $(LHEADER_DIR)
 		@echo "$(NAME) : $(_GREEN)Done$(_END)"
 
 $(LIBUNIT):
