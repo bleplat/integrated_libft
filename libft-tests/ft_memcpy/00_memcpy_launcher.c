@@ -6,7 +6,7 @@
 /*   By: fbabin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 20:08:31 by fbabin            #+#    #+#             */
-/*   Updated: 2018/12/02 14:22:34 by bleplat          ###   ########.fr       */
+/*   Updated: 2018/12/02 22:11:50 by fbabin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 int		memcpy_launcher(void)
 {
-	t_test_list		*test_list;
+	t_ut_list		*ut_list;
 
-	test_list = NULL;
-	test_list_add(&test_list, "test_memcpy_simple_1", &test_memcpy_simple_1);
-	test_list_add(&test_list, "test_memcpy_simple_2", &test_memcpy_simple_2);
-	test_list_add(&test_list, "test_memcpy_null_1", &test_memcpy_null_1);
-	test_list_add(&test_list, "test_memcpy_null_2", &test_memcpy_null_2);
-	return (launch_tests(&test_list));
+	ut_list = NULL;
+	ut_putstr("FT_MEMCPY :\n");
+	ut_list_add(&ut_list, "test_memcpy_simple_1", &test_memcpy_simple_1);
+	ut_list_add(&ut_list, "test_memcpy_simple_2", &test_memcpy_simple_2);
+	ut_list_add(&ut_list, "test_memcpy_null_1", &test_memcpy_null_1);
+	ut_list_add(&ut_list, "test_memcpy_null_2", &test_memcpy_null_2);
+	return (ut_launch_tests(&ut_list));
 }

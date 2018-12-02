@@ -6,7 +6,7 @@
 #    By: fbabin <fbabin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/20 22:51:42 by fbabin            #+#    #+#              #
-#    Updated: 2018/12/02 18:24:43 by bleplat          ###   ########.fr        #
+#    Updated: 2018/12/02 22:30:00 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,7 +102,7 @@ fclean: clean
 		@echo "$(NAME) fclean : $(_GREEN)Done$(_END)"
 
 re:
-		make fclean
+		@make fclean
 		@make
 
 .PHONY: all clean fclean re
