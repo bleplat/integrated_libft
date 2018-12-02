@@ -3,9 +3,12 @@ os: osx
 git:
     submodules: true
 before_install:
-      - test -n $CC && unset CC
-install: true
-script: ./tests.sh
+    - test -n $CC && unset CC
+install:
+    - pushd framework && make && popd
+script:
+    - make -C libft-tests all
+    - make -C libft-tests test
 
 
 
