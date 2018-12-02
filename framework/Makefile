@@ -6,18 +6,19 @@
 #    By: fbabin <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/28 19:49:12 by fbabin            #+#    #+#              #
-#    Updated: 2018/12/01 17:44:54 by bleplat          ###   ########.fr        #
+#    Updated: 2018/12/02 21:46:50 by bleplat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	libunit.a
 
-FNT				=	test_list \
-					tests_run \
-					test_stdout \
-					test_putstr \
-					test_putstr_wrapper \
-					tests_run_wrapper
+FNT				=	ut_list \
+					ut_putstr \
+					ut_putstr_wrapper \
+					ut_run \
+					ut_run_wrapper \
+					ut_stdout \
+					ut_set_display \
 
 CC				=	gcc
 FLAGS			=	-Wall -Werror -Wextra
@@ -52,6 +53,7 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INCLUDES)/libunit.h | $(OBJ_DIR)
 
 clean:
 		@/bin/rm -f $(OBJ)
+		@/bin/rm -rf $(OBJ_DIR)
 		@echo $@ ": $(_GREEN)Done$(_END)"
 
 fclean: clean

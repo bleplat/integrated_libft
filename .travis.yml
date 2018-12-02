@@ -9,6 +9,8 @@ install:
 script:
     - make -C libft-tests all
     - make -C libft-tests test
+after_success: true
+after_failure: true
 
 
 
