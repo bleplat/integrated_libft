@@ -6,7 +6,7 @@
 /*   By: fbabin <fbabin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 21:24:08 by fbabin            #+#    #+#             */
-/*   Updated: 2018/04/16 01:11:40 by fbabin           ###   ########.fr       */
+/*   Updated: 2018/12/05 18:43:57 by bleplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int		ft_atoi(const char *str)
 	a = 0;
 	while (ft_isspace(*str))
 		str++;
-	sign = (*str == '-') ? -1 : 1;
-	str += (*str == '-' || *str == '+') ? 1 : 0;
+	//sign = (*str == '-') ? -1 : 1;
+	//str += (*str == '-' || *str == '+') ? 1 : 0;
 	while (*str && ft_isdigit(*str))
 	{
 		limit = limit * 10 + (*(str) - '0');
